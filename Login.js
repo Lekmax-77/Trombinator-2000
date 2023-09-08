@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { View, TextInput, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-// import axios from 'axios';
+
+
 
 const apiUrl = 'https://masurao.fr/api/employees/login'; // Endpoint de l'API
 
@@ -62,24 +63,30 @@ const Login = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome back!</Text>
-      <Text style={styles.text}>Email</Text>
-      <TextInput
-        placeholder="Email"
-        onChangeText={(text) => setEmail(text)}
-        value={email}
-        style={styles.input}
-      />
-      <Text style={styles.text}>Password</Text>
-      <TextInput
-        placeholder="Mot de passe"
-        onChangeText={(text) => setPassword(text)}
-        value={password}
-        secureTextEntry
-        style={styles.input}
-      />
-      <CustomButton title="Sign In" onPress={handleLogin} />
-      {errorMessage ? <Text style={styles.errorMessage}>{errorMessage}</Text> : null}
+      <View style={styles.titleContainer}>
+        <Text style={styles.title}>Welcome back!</Text>
+      </View>
+      <View style={styles.formContainer}>
+        {errorMessage ? <Text style={styles.errorMessage}>{errorMessage}</Text> : null}
+        <Text style={styles.text}>Email</Text>
+        <TextInput
+          placeholder="Email"
+          onChangeText={(text) => setEmail(text)}
+          value={email}
+          style={styles.input}
+        />
+        <Text style={styles.text}>Password</Text>
+        <TextInput
+          placeholder="Mot de passe"
+          onChangeText={(text) => setPassword(text)}
+          value={password}
+          secureTextEntry
+          style={styles.input}
+        />
+      </View>
+      <View style={styles.buttonContainer}>
+        <CustomButton title="Sign In" onPress={handleLogin} />
+      </View>
     </View>
   );
 };
@@ -87,7 +94,6 @@ const Login = () => {
 const styles = StyleSheet.create({
   buttonText: {
     color: 'white',
-    marginBottom: -2,
     fontSize: 17,
     textAlign: 'center',
   },
@@ -97,14 +103,17 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     fontSize: 14,
   },
+  titleContainer: {
+    flex: 2, // Ajustez la proportion en fonction de vos besoins
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
   title: {
-    width: '80%',
-    height: 40,
     color: '#545F71',
     fontSize: 30,
   },
-  container: {
-    flex: 1,
+  formContainer: {
+    flex: 5, // Ajustez la proportion en fonction de vos besoins
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -120,14 +129,21 @@ const styles = StyleSheet.create({
     color: 'red',
     marginTop: 10,
   },
+  buttonContainer: {
+    flex: 2, // Ajustez la proportion en fonction de vos besoins
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
   button: {
     backgroundColor: '#545F71',
     borderRadius: 7,
-    position: 'absolute',
-    bottom: 70,
     padding: 15,
     width: 347,
     height: 48,
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
   },
 });
 
