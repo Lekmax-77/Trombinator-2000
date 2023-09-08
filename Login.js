@@ -24,8 +24,8 @@ const Login = () => {
 
   const handleLogin = () => {
     const requestBody = {
-      email: 'oliver.lewis@masurao.jp',
-      password: 'password',
+      email: email,
+      password: password,
     };
 
     fetch(apiUrl, {
@@ -49,9 +49,6 @@ const Login = () => {
       })
       .then((data) => {
         if (data && data.access_token) {
-          // Vous pouvez stocker ou utiliser l'access_token ici
-          // Par exemple, le passer à votre écran Home ou effectuer d'autres opérations
-          setErrorMessage('go.');
           navigation.navigate('Menu', { email, token: data.access_token });
         }
       })

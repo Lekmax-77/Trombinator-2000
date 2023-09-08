@@ -6,6 +6,7 @@ import { View, Text } from 'react-native';
 import { Image } from 'react-native';
 import TrombiScreen from './(tabs)/Trombi';
 import EventsScreen from './(tabs)/Events';
+import ForumScreen from './(tabs)/Forum';
 
 const Tab = createBottomTabNavigator();
 
@@ -102,15 +103,6 @@ const HomeScreen = () => (
   </View>
 );
 
-
-
-const ForumScreen = () => (
-  <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-    <Text>Forum</Text>
-  </View>
-);
-
-
 const SettingsScreen = () => (
   <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
     <Text>Settings</Text>
@@ -138,16 +130,15 @@ const Menu = () => {
       </Tab.Screen>
       <Tab.Screen 
         name="Forum" 
-        component={ForumScreen} 
         options={{
-          title: 'Forum',
-
+          title: 'Coffe Pause',
           tabBarIcon: ({ color, size }) => (
             <ForumIcon color={color} size={size} />
           ),
-      
-      }} // Définir le titre de l'écran
-      />
+        }}
+      >
+        {() => <ForumScreen token={token} />}
+      </Tab.Screen>
       <Tab.Screen 
         name="Home" 
         component={HomeScreen}
