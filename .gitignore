@@ -1,0 +1,27 @@
+# Les fichiers et répertoires générés par React Native
+node_modules/
+npm-debug.log
+yarn-error.log
+android/build/
+ios/build/
+
+# Les fichiers de configuration spécifiques à votre environnement de développement
+.env
+
+# Les fichiers d'éditeur
+.vscode/
+.idea/
+
+# Les fichiers de build
+*.apk
+*.aab
+*.app
+*.xcarchive
+*.gradle
+android/app/build/
+ios/build/
+
+# Les fichiers de logs ou de sauvegarde
+*.log
+*.backup
+*.swp
